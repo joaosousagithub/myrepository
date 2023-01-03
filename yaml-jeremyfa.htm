@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>Test yaml-jeremyfa</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script type="text/javascript" src="yaml.js"></script>
+    <script type="text/javascript">
+
+        // YAML string to Javascript object
+        //var obj = jsyaml.load( 'greeting: hello\nname: world' );
+        //console.log( obj );
+	//alert(obj);
+
+	var yamlString_hello = "greeting: hello\nname: world";
+	var yamlString = "---\nnonWorkingDays:\n- \"SATURDAY\"\n- \"SUNDAY\"\nholidays:\n- id: 1051156\n  name: \"Test\"\n  dayOfMonth: 29\n  monthOfYear: 7\n  year: 2020\n  isAnnuallyRecurring: false\n- id: 20668964\n  name: \"Test2\"\n  dayOfMonth: 10\n  monthOfYear: 7\n  year: 2002\n  isAnnuallyRecurring: true\n- id: 990333208\n  name: \"Christmas\"\n  dayOfMonth: 25\n  monthOfYear: 12\n  year: 2021\n  isAnnuallyRecurring: true\n- id: 1749987317\n  name: \"New Year's Day\"\n  dayOfMonth: 1\n  monthOfYear: 1\n  year: 2021\n  isAnnuallyRecurring: true\n";	
+
+	var obj = YAML.parse(yamlString);
+	alert(obj.holidays[0].dayOfMonth +" -> "+obj.holidays[0].monthOfYear);//alert("len: "+obj.holidays.length);
+
+	obj.holidays[0].dayOfMonth = 99;
+	obj.holidays[0].monthOfYear = 8;
+	alert(obj.holidays[0].dayOfMonth +" -> "+obj.holidays[0].monthOfYear);
+
+	var newyamlString = YAML.stringify(obj);
+	alert("newyamlString: " + newyamlString);
+
+	//var objFromFile = YAML.load('https://github.com/joaosousagithub/myrepository/blob/main/myfile.yml');
+	var objFromFile = YAML.load("https://github.com/joaosousagithub/myrepository/blob/d2fe3495062115eba5088d3720f9b5e5353e0864/myfile.yml");
+	alert("---yaml from file---");
+	alert(objFromFile.holidays[0].dayOfMonth +" -> "+objFromFile.holidays[0].monthOfYear);
+
+/*YAML.load('myfile.yml', function(result)
+{
+    nativeObject = result;
+});*/
+
+	/*var obj3 = YAML.parse(yamlString2);
+	alert("obj3: "+obj3.holidays[0].dayOfMonth +" -> "+obj3.holidays[0].monthOfYear);
+
+	var obj4 = obj2;
+	alert("obj4: " + obj4);
+	alert("obj4: "+obj4.holidays[0].dayOfMonth +" -> "+obj4.holidays[0].monthOfYear);
+
+	//delete obj4.holidays[0].dayOfMonth;
+	alert("after delete");
+	alert("obj4: "+obj4.holidays[0].dayOfMonth +" -> "+obj4.holidays[0].monthOfYear);
+	obj4.holidays[0].dayOfMonth = 88;
+	alert("after 88");
+	alert("obj4: "+obj4.holidays[0].dayOfMonth +" -> "+obj4.holidays[0].monthOfYear);
+
+	var dmp = YAML.dump();
+
+	alert("dump");
+	alert(obj2);*/
+
+	//var newyamlString = YAML.stringify(obj2[, inline /* @integer depth to start using inline notation at */[, spaces /* @integer number of spaces to use for indentation */] ]);
+	//var newyamlString = YAML.stringify(obj4);
+	//alert(newyamlString);
+
+        // YAML file to Javascript object
+        /*$.get( 'https://raw.githubusercontent.com/nodeca/js-yaml/c50f9936bd1e99d64a54d30400e377f4fda401c5/benchmark/samples/document_application2.yaml', function( data ) {
+            var obj = jsyaml.load( data );
+            console.log( obj );
+        });*/
+
+        // Huge YAML file (7.2 MB) to Javascript object
+        /*$.get( 'https://raw.githubusercontent.com/nodeca/js-yaml/master/benchmark/samples/document_huge.yaml', function( data ) {
+            var obj = jsyaml.load( data );
+            console.log( obj );
+        });*/
+
+    </script>
+</head>
+<body>
+<h1>Test js-yaml</h1>
+<p><a href="https://github.com/nodeca/js-yaml">https://github.com/nodeca/js-yaml</a></p>
+</body>
+</html>
