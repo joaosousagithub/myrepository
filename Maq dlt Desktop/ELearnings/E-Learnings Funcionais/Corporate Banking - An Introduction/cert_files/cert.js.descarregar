@@ -1,0 +1,16 @@
+// JavaScript Document
+
+$( document ).ready(function(){
+	function setCert(){
+
+		var student_name = sessionStorage.getItem("name");
+		var date = sessionStorage.getItem("date");
+		var course = sessionStorage.getItem("course");
+		$("#person").html("<span>"+student_name+"</span>");
+		$("#date").html(date);
+		$("#title").html(course); 
+	}
+
+	var a = setTimeout(setCert, 500);
+	}
+)
