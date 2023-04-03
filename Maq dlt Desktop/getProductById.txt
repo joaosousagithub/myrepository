@@ -1,0 +1,133 @@
+{
+    "accountID": "0128799023",
+    "accountingSettings": {
+        "accountingMethod": "CASH",
+        "interestAccruedAccountingMethod": "NONE",
+        "accountingRules": [
+            {
+                "encodedKey": "8a19b8c082d43f240182d4ddce7a7e61",
+                "glAccountKey": "8a19b0cb77819166017782c5542003f3",
+                "financialResource": "DEPOSIT_REFERENCE"
+            },
+            {
+                "encodedKey": "8a19b8c082d43f240182d4ddce7a7e62",
+                "glAccountKey": "8a19b0cb77819166017782c5586a0720",
+                "financialResource": "INTEREST_EXPENSE"
+            },
+            {
+                "encodedKey": "8a19b8c082d43f240182d4ddcea27e63",
+                "glAccountKey": "8a19b0cb77819166017782c556fa0613",
+                "financialResource": "FEE_INCOME"
+            },
+            {
+                "encodedKey": "8a19b8c082d43f240182d4ddcea27e64",
+                "glAccountKey": "8a19ade87bdd4902017be13655dd2bf4",
+                "financialResource": "SAVINGS_CONTROL"
+            }
+        ]
+    },
+    "availabilitySettings": {
+        "branchSettings": {
+            "forAllBranches": true,
+            "availableProductBranches": [
+                
+            ]
+        },
+        "availableFor": [
+            "PURE_GROUPS",
+            "INDIVIDUALS"
+        ]
+    },
+    "branchId": "portugal",
+    "category": "PERSONAL_DEPOSIT",
+    "clientId": "299268507",
+    "config": {
+        "url": "deloittept.sandbox.mambu.com",
+        "basicAuthHeader": "am9hb2Zpc291c2E6TWFtYnVAMTIzNF9qb2Fv"
+    },
+    "creationDate": "2021-02-15T10:53:06Z",
+    "creditArrangementSettings": {
+        
+    },
+    "currencySettings": {
+        "currencies": [
+            {
+                "currencyCode": "EUR",
+                "code": "EUR"
+            }
+        ]
+    },
+    "depositTransactionId": "39795",
+    "encodedKey": "8a19d5c677a4c6490177a54ae0b708dc",
+    "feesSettings": {
+        "allowArbitraryFees": true,
+        "fees": [
+            {
+                "encodedKey": "8a19b7ac77a4da420177a588a50b393f",
+                "name": "SEPA Main Amount",
+                "id": "sepa-main-amt",
+                "amountCalculationMethod": "FLAT",
+                "trigger": "MANUAL",
+                "feeApplication": "REQUIRED",
+                "state": "ACTIVE",
+                "creationDate": "2021-02-15T11:51:23Z",
+                "lastModifiedDate": "2021-02-15T11:51:22Z",
+                "accountingRules": [
+                    {
+                        "encodedKey": "8a19b8c082d43f240182d4ddcea27e65",
+                        "glAccountKey": "8a19b0cb77819166017782c5524502a8",
+                        "financialResource": "FEE_INCOME"
+                    }
+                ]
+            }
+        ]
+    },
+    "id": "co-at-ca-eur",
+    "interestSettings": {
+        "interestPaidIntoAccount": false,
+        "interestPaymentSettings": {
+            "interestPaymentDates": [
+                
+            ]
+        },
+        "collectInterestWhenLocked": true
+    },
+    "internalControls": {
+        "openingBalance": {
+            "minValue": 0
+        }
+    },
+    "lastModifiedDate": "2022-08-25T12:58:02+01:00",
+    "maturitySettings": {
+        "maturityPeriod": {
+            
+        },
+        "maturityPeriodUnit": "MONTHS"
+    },
+    "name": "WUIB - Austria - Current Corp. Account EUR",
+    "newAccountSettings": {
+        "idGeneratorType": "RANDOM_PATTERN",
+        "idPattern": "012#######"
+    },
+    "notes": "",
+    "offsetSettings": {
+        "allowOffset": false
+    },
+    "overdraftInterestSettings": {
+        
+    },
+    "overdraftSettings": {
+        "allowOverdraft": false,
+        "maxOverdraftLimit": 0,
+        "allowTechnicalOverdraft": false
+    },
+    "productId": "co-at-ca-eur",
+    "state": "INACTIVE",
+    "taxSettings": {
+        "withholdingTaxEnabled": false
+    },
+    "templates": [
+        
+    ],
+    "type": "CURRENT_ACCOUNT"
+}

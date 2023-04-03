@@ -1,0 +1,42 @@
+{
+    "accountID": "0128799023",
+    "addresses": [
+        {
+            "encodedKey": "8a19dee173b34f480173b3c35a2c7434",
+            "parentKey": "8a19dee173b34f480173b3c35a2c7433",
+            "line1": "PRAÇA DA ALEGRIA",
+            "line2": "",
+            "city": "Lisbon",
+            "region": "Lisbon",
+            "postcode": "1900",
+            "country": "Portugal",
+            "indexInList": -1
+        }
+    ],
+    "branchHolidays": [
+        {
+            "encodedKey": "8a19dee173b34f480173b3d2f12703ef",
+            "name": "dia de portugal",
+            "id": 11,
+            "date": "2020-06-10",
+            "isAnnuallyRecurring": true,
+            "creationDate": "2020-08-03T11:16:53+01:00"
+        }
+    ],
+    "branchId": "portugal",
+    "clientId": "299268507",
+    "config": {
+        "url": "deloittept.sandbox.mambu.com",
+        "basicAuthHeader": "am9hb2Zpc291c2E6TWFtYnVAMTIzNF9qb2Fv"
+    },
+    "creationDate": "2020-08-03T11:09:39+01:00",
+    "depositTransactionId": "39795",
+    "emailAddress": "",
+    "encodedKey": "8a19dee173b34f480173b3c35a2c7433",
+    "id": "portugal",
+    "lastModifiedDate": "2020-08-03T11:12:55+01:00",
+    "name": "Portugal",
+    "notes": "",
+    "phoneNumber": "",
+    "state": "ACTIVE"
+}

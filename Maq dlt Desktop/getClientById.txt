@@ -1,0 +1,62 @@
+{
+    "_Custom_Fields_Clients": {
+        "Position_Clients": "Custom Position Field OK"
+    },
+    "_Family_Clients": {
+        "Family_Members_Clients": "3"
+    },
+    "_Individual_Details_Clients": {
+        "EMail_Address_Details_Clients": "x@x.com"
+    },
+    "accountID": "0128799023",
+    "activationDate": "2020-07-14T10:46:27+01:00",
+    "addresses": [
+        {
+            "encodedKey": "8a19c707736adf8a01736c46a8ba4646",
+            "parentKey": "8a19a109734c7d7601734cb4db3a1e78",
+            "line1": "Rua Ilha Madeira",
+            "line2": "Kaiserstraße",
+            "city": "Lisbon",
+            "region": "Lisbon",
+            "postcode": "1234-123",
+            "country": "Portugal",
+            "indexInList": 0
+        }
+    ],
+    "approvedDate": "2020-07-14T10:43:07+01:00",
+    "assignedBranchKey": "8a19dee173b34f480173b3c35a2c7433",
+    "birthDate": "2022-12-07",
+    "clientId": "299268506",
+    "clientRoleKey": "8a19427b71ede3ca0171f4b5db321215",
+    "config": {
+        "url": "deloittept.sandbox.mambu.com",
+        "basicAuthHeader": "am9hb2Zpc291c2E6TWFtYnVAMTIzNF9qb2Fv"
+    },
+    "creationDate": "2020-07-14T10:43:07+01:00",
+    "depositTransactionId": "39795",
+    "encodedKey": "8a19a109734c7d7601734cb4db3a1e78",
+    "firstName": "Client Nuno",
+    "gender": "MALE",
+    "groupKeys": [
+        "8a19cc347984c8550179850438a43c44",
+        "8a19a4e185bf378c0185bf47ec91011b",
+        "8a19d66a79ef110f0179f1555b107b5a",
+        "8a19c34484986188018499c1ce9150b6",
+        "8a19d66a79ef110f0179f15385f97b4e",
+        "8a19a5d37aec242f017af1c7e7192b61",
+        "8a19bb1d795f8953017960bcd44f1135",
+        "8a19cc347984c855017984d353fe0561"
+    ],
+    "groupLoanCycle": 0,
+    "id": "299268506",
+    "idDocuments": [
+        
+    ],
+    "lastModifiedDate": "2022-12-07T16:26:00Z",
+    "lastName": "Faria",
+    "loanCycle": 0,
+    "mobilePhone": "0987654321",
+    "notes": "New Note",
+    "preferredLanguage": "ENGLISH",
+    "state": "ACTIVE"
+}
