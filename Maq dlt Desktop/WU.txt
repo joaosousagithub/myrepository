@@ -1,0 +1,47 @@
+
+KT Documents
+	KT Session from Project X
+		Authorization hold - KT
+			GMT20221013-104121_Recording_1920x1020.mp4
+	
+		OutSystems
+			...
+
+		Application_Access_Operate 30m
+		Mambu-Marqeta Connector Deployment 20210722 19m
+		Project X _ KT - Account Limits & Operational Risk Controls-20220330_103241-Meeting Recording 29m
+		WU PX Operate - Mambu KT Account Limits 31m
+		WU PX Operate - Mambu KT Account Upgrade-Downgrade 19m
+		WU PX Operate - Mambu KT Common Branch Payment 43m
+		WU PX Operate - Mambu KT Onboarding	video 22m
+		WU_Project X_MPO Environment Strategy V1.0.pptx	
+
+	Mambu - Operate Transition
+		Handover session
+			Fx conversion docs
+				ConversionFailedTxns.xlsx
+				steps.txt
+				WU_Pricing_List_Germany_EN_Nov2021173887.1.pdf
+			Session1.mp4 32m
+			Session2.mp4 23m
+
+		KT Session Multi-threading.mp4 45m
+		Mambu KT plan.docx
+		Observation on Transfer using authorization hold.docx
+		On-call support KT.mp4 23m
+		Operate KT Session 1.mp4 26m
+		Operate KT Session 2.mp4 29m
+
+	OutSystems New User Credentials
+		...
+
+	Case Management_RequestAccessDoc.docx
+	Operate KT Sessions.xlsx
+	Western Union PX_SOP for PROD Issues.docx
+	WU Money Transfer - Architectural Training DELOITTE INTERNAL ONLY.mp4 56m
+	WU process_High Priority Incident response and assessment guidelines.pdf
+
+
+
+
+	

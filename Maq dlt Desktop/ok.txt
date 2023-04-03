@@ -1,0 +1,102 @@
+W0015741
+},qZyGty=FA5
+
+WU Employee ID 
+
+
+487 901
+
+_______________________________
+
+Okta Verify (SM-A135F)
+_______________________________
+
+* Notifica a equipa de PMO das tuas credenciais WU (e-mail + user) para que possamos fazer o pedido do equipamento – verifica o teu email como exemplificado no email abaixo (Nota: Garante o uso regular do PC WU de modo a salvaguardar as atualizações necessárias ao seu funcionamento)
+
+
+
+
+WU Employee ID: W0015741
+
+Joao Filipe Sousa
+
+Joao.FilipeSousa@wu.com
+
+
+
+queues
+excel com yaml
+
+
+
+
+
+forward da meeting para o mail da WU
+
+
+
+a seguir de acabar o processo MPO:
+passar para QA
+extrair a pasta
+ir ao sitio onde meter a pasta
+	melhor: pasta de origem
+		e destino
+	
+	guia de deployment
+		passar este folder 		para este folder
+
+	draft para a equipa de
+	mulesoft para 
+	alterar o convid para
+	acesso á gateway
+
+
+vai me enviar os id's
+enviar um template
+
+
+
+
+
+
+
+
+
+
+api-nonprod.marqeta.partner.us.cloud.wuintranet.net/v3/cards
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

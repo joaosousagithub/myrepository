@@ -1,0 +1,18 @@
+45 step04
+46 step05
+47 step06
+49 step07
+
+61 step18 -> erro na security
+
+77 step12
+78 step13 -> já consigo delete mas ver porque não conseguia
+
+
+85 step19 -> aos 2:33 o meu tem erro
+
+92 step25 -> 2:23 na console dá erros mas executa bem no browser
+
+93 step26 -> problemas no pom
+
+

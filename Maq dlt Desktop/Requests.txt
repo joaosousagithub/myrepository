@@ -1,0 +1,82 @@
+WU Jira Request ID: 384373
+Active Directory Forest HQINTL Request ID: 384376
+VPN - Remote Access Request ID: 384377
+Exchange-Outlook Request ID: 384381
+Okta Request ID: 384385
+
+----------------------------------------------------------------------------
+WU Jira Request ID: 385967
+----------------------------------------------------------------------------
+
+
+End User Access to Box on Okta	ID: 384385		Complete
+
+Exchange-Outlook Request 	ID: 384381		Pending
+
+VPN - Remote Access Request 	ID: 384377		(Green)
+
+Active Directory Forest HQINTL	ID: 384376		Denied
+
+WU Jira Request 		ID: 384373		Provisioning (Request Pending)
+
+AWSWorkspace-MFA-Okta-Access on Active Directory Forest HQINTL1		Complete
+
+
+
+
+confl prov
+jira prov
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+__________________________________________________________
+
+kanban board
+
+GET /deposits/{depositAccountId}
+
+getAllAuthorizationHolds
+GET /deposits/{depositAccountId}/authorizationholds
+
+getAuthorizationHoldById
+GET /deposits/{depositAccountId}/authorizationholds/{authorizationHoldExternalReferenceId}
+_______________________________________________________________________________________________
+
+/api/tasks	POST
+
+/api/deposits/transactions/{{depositTransactionId}}	GET
+
+/api/deposits/{{depositAccountId}}/transactions		GET
+
+/api/deposits/transactions:search			POST
+
+/api/deposits:search					POST
+
+/api/deposits/{{depositAccountId}}/deposit-transactions	POST
+
+/api/deposits:search?paginationDetails=ON&limit={{limit}}&offset={{begin}}	POST
+
+/api/clients/{{depositAccounts[{{i}}].accountHolderKey}}	GET
+
+/api/currencies/{{currencyCode}}/accountingRates	GET

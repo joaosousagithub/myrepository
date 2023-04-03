@@ -1,0 +1,296 @@
+https://github.com/in28minutes/spring-microservices-v3/blob/main/03.microservices/01-step-by-step-changes/readme.md#spring-cloud-config-server---steps-01-to-08
+
+
+URL
+http://localhost:8000/currency-exchange/from/USD/to/INR
+
+-Dserver.port=8000
+
+
+156 no eureka aparece api-gateway registada como unknown
+
+158 http://localhost:8765/CURRENCY-EXCHANGE/currency-exchange/from/USD/to/INR nao dá
+	
+-----------------------------------------------------------
+
+
+	
+Recommendation 1
+
+If you are using Windows, make sure that you use PowerShell instead of Command Prompt.
+
+
+
+Recommendation 2
+
+If you are using Window 10 and are using docker toolbox
+
+=> Use 192.168.99.100 instead of localhost.
+
+Note: If 192.168.99.100 does not work, you can find the IP by using the command docker-machine ip
+
+
+
+Reason
+
+In Window 10 when using docker toolbox, docker is configured to use the default machine with IP 192.168.99.100
+	
+182
+	repetir para ver o zipkin
+	
+183
+	repetir se os passos ate correrem bem
+	
+186
+	tentar build a image again
+	
+187
+	inicio do Docker Compose (correr tudo com configuracoes num .yaml)
+	ate 193
+	
+204
+	kubectl set image deployment hello-world-rest-api hello-world-rest-api=DUMMY_IMAGE:TEST
+	kubectl set image deployment hello-world-rest-api hello-world-rest-api=in28min/hello-world-rest-api:0.0.2.RELEASE
+	
+213
+	docker.hub.com
+	nos poms dos currency-exchange e currency-conversion replace in28min para (o meu identificador do hub docker)
+	cmd-> docker login
+	after the images built
+		docker push in28min/mmv3-currency-conversion-service:0.0.12-SNAPSHOT
+		docker push in28min/mmv3-currency-exchange-service:0.0.12-SNAPSHOT
+		
+214
+	to create a deployment
+		kubectl create deployment currency-exchange --image=in28min/mmv3-currency-exchange-service:0.0.12-SNAPSHOT
+		kubectl expose deployment currency-exchange --type=LoadBalancer --port=8000
+		kubectl get services
+			pick up the external ip (nem que se experimente kubectl get all)
+		na console cloud google
+			launch cloud shell
+			open the shell in a new tab
+				curl http:// (o external ip):8000/currency-exchange/from/USD/to/INR
+					ver se ha uma resposta json a seguir deste comando
+					
+	os mesmos passos anteriores para o deployment do currency-conversion
+	
+215
+	kubectl get deployments
+	cd in28min/git/spring-microservices-v2/05.kubernetes/currency-exchange-service
+	kubectl get deployment currency-exchange -o yaml >> deployment.yaml
+		aparece o ficheiro deployment.yaml no eclipse ???
+			projecto currency-exchange-service -> na pasta target
+			
+	kubectl get service currency-exchange -o yaml >> service.yaml
+			tambem aparece no eclipse
+			
+	juntar o conteudo do service.yaml ao conteudo do deployment.yaml, delete service.yaml
+	kubectl apply diff -f deployment.yaml
+	kubectl apply -f deployment.yaml
+	kubectl get pods
+	
+	na cloud shell command line
+		watch curl http://34.67.33.185(o tal ip externo???):8100/currency-conversion-feign/from/USD/to/INR/quantity/10
+		
+216
+	na pasta currency-exchange-service
+		new folder called backup -> deployment.yaml la dentro chamado deployment-01-initial.yaml
+	ao minuto 1:3... ver as alteracoes ao deployment.yaml
+	
+217
+	Titulo - Enable Logging and Tracing APIs in Google Cloud Platform
+	
+218
+	Titulo - Deploying Microservices using Kubernetes YAML Configuration
+	kubectl delete all -l app=currency-exchange
+	kubectl delete all -l app=currency-conversion
+	kubectl get all -> para garantir que nao ha nenhum
+	kubectl apply -f deployment.yaml
+	kubectl get pods
+	kubectl get svc
+	kubectl get svc --watch
+		external ip still pending -> await to be created
+	curl http://34.67.33.185(o tal ip externo???):8100/currency-exchange/from/USD/to/INR
+		json como resultado
+		
+219
+	na pasta backup o deployment.yaml corrente grava-lo como deployment-02-cleandup.yaml
+	copiar o yaml to currency-conversion-service
+	alteracoes aos 0:48
+	no terminal cd ../currency-conversion-service/
+	kubectl apply -f deployment.yaml
+	kubectl get svc
+		kubectl get svc --watch
+	curl http://34.67.33.185(o tal ip externo???):8100/currency-converion-feign/from/USD/to/INR
+		json como resultado
+		
+220
+	titulo - Creating Environment Variables to enable Microservice Communication
+	Eclipse
+		CurrencyExchangeProxy.java
+			Comentar o @FeignClient...CURRENCY_EXCHANGE_SERVICE_HOST
+			descomentar o @FeignClient...CURRENCY_EXCHANGE_URI
+			
+		No currency-conversion-service
+		pom.xml
+		update the tag for the docker image
+			<version>0.0.12-SNAPSHOT</version>
+			
+		No currency-exchange-service
+			<version>0.0.12-SNAPSHOT</version>
+		CurrencyExchangeController
+			String version = "v12";
+			
+		build
+		
+		docker push in28min/mmv2-currency-conversion-service:0.0.12-SNAPSHOT
+		docker push in28min/mmv2-currency-exchange-service:0.0.12-SNAPSHOT
+		
+		update deployment.yaml
+			ver ao 5:21
+		...
+		kubectl apply -f deployment.yaml
+		
+221 - Understanding Centralized Configuration in Kubernetes - Config Maps
+	-kubectl create configmap currency-conversion  --from-literal=CURRENCY_EXCHANGE_URI=http://currency-exchange
+	-kubectl get configmap
+	-kubectl get configmap currency-conversion
+	-kubectl get configmap currency-conversion -o yaml
+	-kubectl get configmap currency-conversion -o yaml >> configmap.yaml
+	-remover
+		resourceVersion, selfLink, uid
+	-add ao deployment.yaml
+		-comentar 
+			# env:
+			#   - name: CURRENCY_EXCHANGE_URI
+			#     value: http://currency-exchange
+	-a seguir do name: mmv2-currency-conversion-service inserir:
+	envFrom:
+		- configMapRef:
+			name: currency-conversion
+	-kubectl apply -f deployment.yaml
+	-kubectl get pods
+		-age -> a few seconds, prova que foi agora lançado por causa do apply deployment.yaml
+	-kubectl logs -f currency-conversion-9b7d...
+		-checkar se está Started CurrencyConversionServiceApplication
+	-testar o currency-conversion service
+		
+
+
+222 - Exploring Centralized Logging and Monitoring in GKE
+
+223 - Exploring Microservices Deployments with Kubernetes
+	-kubectl rollout history deployment currency-exchange
+	-no deployment.yaml
+		spec:
+			containers:
+			- image: DUMMY (alterar para isto)
+	-kubectl apply -f deployment.yaml
+	-kubectl get pods
+		-vai estar um com InvalidImageName
+	-kubectl rollout undo deployment currency-exchange --to-revision=1
+	-na troca de images h+a um bocado de downtime
+
+
+
+224 - Configuring Liveness and Readiness Probes for Microservices with K8S
+	-To avoid downtime between releases
+	-no deployment.yaml
+		a seguir do name: mmv2-currency-exchange-service e antes do restartPolicy inserir
+		readinessProbe:
+			httpGet:
+				port: 8000
+				path: /actuator/health/readiness
+		livenessProbe;
+			httpGet:
+				port: 8000
+				path: /actuator/health/liveness
+	-kubectl diff -f deployment.yaml
+	-kubectl apply -f deployment.yaml
+	-kubectl get pods
+		-see that one has started terminating and one entering a running status
+		-com o curl nao ha erro, continues to work
+	-mudar a image no deployment.yaml
+	-kubectl diff -f deployment.yaml
+	-kubectl apply -f deployment.yaml
+		-no cloud shell (com curl de 0.1 segundos) see that the service continues to work
+	-kubectl get pods
+		-2 versions of currency-exchange running (mas uma nao esta ainda ready)
+			-quando passar a ready a outra de estar running
+				-checkar no curl que esta a correr que agora esta a receber responses do v12
+
+
+
+
+
+
+225 - Autoscaling Microservices with Kubernetes
+	-kubectl get pods
+	-Increase the number of pods for this currency-exchange if the load on it is high
+	-kubectl autoscale deployment currency-exchange --min=3 --cpu-percent=5
+	-kubectl get hpa
+	-se estiver muito s pedidos (com o curl de 0.1 seconds)
+		-vendo os pods com kubectl get pods
+			-new pods launched up
+	-kubectl top pod
+	-kubectl top nodes
+	
+	-kubectl delete hpa currency-exchange
+	-kubectl get pods
+		-the additional pods are still running
+		-no deployment.yaml set replicas to 1
+			-kubectl diff -f deployment.yaml
+			-kubectl apply -f deployment.yaml
+				-the other instances will be terminated
+				-kubectl get pods
+					-check that are Terminating
+
+
+226 - Delete Kubernetes Cluster
+
+
+
+
+
+
+
+
+
+
+### DIAGRAMAS #####################################################################
+167
+	diagrama Microservices
+	diagram Docker
+	
+173
+	diagrama Docker Architecture
+	
+178
+	diagrama Distributed Tracing
+	
+182
+	diagrama Distributed Tracing
+	
+194
+	diagrama
+	
+195
+	diagrama
+	
+197
+	diagrama
+	
+199
+	diagrama Kubernete Deployments
+	
+201		
+	diagrama Kubernetes
+	
+202
+	Kubernetes Architecture
+	
+205
+	diagrama Kubernete Deployments
+	
+208
+	diagrama Kubernetes Architecture
