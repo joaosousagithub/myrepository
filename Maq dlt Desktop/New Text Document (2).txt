@@ -1,0 +1,341 @@
+Caso ainda não tenhas preenchido o questionário de feedback sobre o “Cloud Certification Program”, pedimos que o faças, por favor, até ao final desta semana.
+???????????????????????????????????????????????????
+
+documentos do contrato para o meu mail pessoal
+
+ptcontratual@DELOITTE.COM
+
+Smart -> fim do mês
+Confirmação do compromisso de cumprimento com as políticas da Deloitte -> fim do mês
+
+The Hoop Talks
+Zero Trust | 24 jan | 9h30-10h00
+
+
+SAVE THE DATE | Confidencialidade e Segurança da Informação (OBRIGATÓRIO)
+25 de janeiro de 2023 09:00-10:45
+
+Consulting FS Talks
+27 de Janeiro 17:30 - 18:00
+
+QRM Presentation | Virtual class - 17 Janeiro | Formulário de Avaliação -> até 31 de Janeiro
+
+FS - CBO - RGA
+3 de fevereiro de 2023 16:30-17:30
+
+Documents> WU Operate > KT Documents > KT Session from Project X > Authorioza
+
+
+postam lateral direita -> barra mais e menos -> ver o code
+
+
+
+############################
+Webservices Spring
+-Comparar projecto do start.spring.io com um projecto criado normalmente no eclipse
+
+lesson 28 - world before spring boot
+
+lesson 29
+creating a spring boot project
+	- start.spring.io
+		-Dependencies
+			-Spring Web
+
+Eclipse->File->Import->Existing Maven Projects
+
+lesson 30
+@RestController
+public class CourseController {
+
+	@RequestMapping("/courses")	map a URL to this specific method
+	public List<Course> retrieveAllCourses() {
+
+lesson 32
+Build a REST API: I need Spring, Spring MVC, Tomcat, JSON conversion...
+Write Unit Tests: I need Spring Test, JUnit, Mockito, ...
+
+<groupId>org.springframework.boot</groupId>
+<artifactId>
+		spring-boot-starter
+		spring-boot-starter-json
+		spring-boot-starter-tomcat
+
+<groupId>org.springframework</groupId>
+<artifactId>
+		spring-web
+		spring-webmvc
+
+lesson 34
+<groupId>org.springframework.boot</groupId>		
+<artifactId>
+		spring-boot-devtools			para não ter que restart o server em cada code change (except pom.xml)
+
+
+lesson 35
+diagrama environments e application configuration
+
+application.properties
+	logging.level.org.springframework=debug
+	spring.profiles.active=prod
+application-dev.properties
+	logging.level.org.springframework=trace
+application-prod.properties
+	logging.level.org.springframework=info
+
+lesson 36
+@ConfigurationProperties(prefix = "currency-service")
+@Component
+public class CurrencyServiceConfiguration {
+	private String url;
+	private username;
+	private String key;
+
+application.properties
+	logging.level.org.springframework=debug
+	spring.profiles.active=dev
+
+	currency-service.url=http://default.in28minutes.com
+	currency-service.username=defaultusername
+	currency-service.key=defaultkey
+
+@RestController
+public class CurrencyConfigurationController {
+
+	@Autowired
+	private CurrencyServiceConfiguration configuration;
+
+	@RequestMapping("/currency-configuration")
+	public CurrencyServiceConfiguration retrieveAll() {
+		return configuration;
+	}
+
+see at http://localhost:8080/currency-configuration
+
+application-dev.properties
+	logging.level.org.springframework=trace
+
+	currency-service.url=http://dev.in28minutes.com
+	currency-service.username=devusername
+	currency-service.key=devkey
+
+lesson 37
+diagrama embedded servers
+
+toda a logica de deploy
+
+lesson 38
+Actuator -> manage and manage your application in your production
+
+lesson 64
+why spring boot ?
+you can build REST API WITHOUT Spring Boot
+what is the need for Spring Boot ?
+
+lesson 67
+starting making a diagram with the classes
+lesson 68
+	continue diagram
+	return a bean
+
+o helloworld bean devolve json mas o helloworld não
+se retornar um bean, converte automaticamente para json
+
+lesson 70
+	cont diagrama
+	PathVariable
+
+lesson 72
+	novo diagram para a social network rest api
+	comparar com a helloworld
+
+lesson 74
+	cont diagrama
+
+lesson 75
+	c d
+	@RequestBody
+
+lesson 76
+	c d
+	return ResponseEntity quando Post
+
+lesson 77
+	c d
+
+	@ResponseStatus(code = HttpStatus.NOT_FOUND)
+	UserNotFoundException extends RuntomeException
+
+lesson 79
+	c d
+	Implementing Generic Exception Handling for All Resources
+
+lesson 80
+	c d
+
+lesson 81
+	c d
+	Validations
+
+	<groupId>org.springframework.boot</groupId>
+	<artifactId>
+		spring-boot-starter-validation
+
+	@Valid
+	exemplo:
+	public ResponseEntity<User> createUser(@Valid @RequestBody User user) {
+
+	public class User {
+		@Size(min=2, message = "Name should have at least 2 characters")
+		private String name;
+
+		@Past(message = "Birth date should be in the past")
+		private LocalDate birthDate;
+
+	melhoria da class CustomizedResponseEntityExceptionHandler
+	
+
+lesson 85
+	springdoc-openapi-starter-webmvc-ui
+	localhost:8080/swagger-ui.html
+	localhost:8080/v3/api-docs
+		openapi, info, servers, paths, components
+
+lesson 86
+	Exploring Content Negotiating - Implementing Support for XML
+
+lesson 87
+	Internationalization
+	messages.properties (criar no src/main/resources)
+		good.morning.message=Good Morning
+
+	private MessageSource messageSource;
+	
+	public HelloWorldController(MessageSource messageSource){
+		this.messageSource = messageSource;
+	}
+
+	Locale locale = LocaleContextHolder.getLocale();
+	return messageSource.getMessage("good.morning.message", null, "Default Message", locale);
+
+	messages-nl.properties
+		good.morning.message=Goedemorgen
+
+	class MessageSource ????????
+
+lesson 89, 90
+Versioning
+	URI versioning, Request Param, Header and Content Negotiation
+
+lesson 91
+	hateoas
+
+lesson 92 - Implementing Static Filtering for REST API
+	Customize field names in response
+		@JSONProperty
+	
+	JsonProperty("user_name")
+	private String name;
+
+Static Filtering: Same filtering for a bean across different REST API
+	@JsonIgnoreProperties, @JsonIgnore
+
+	@RestController
+	public class FilteringController {
+
+		@GetMapping("/filtering")
+		public SomeBean filtering() {
+			return new SomeBean("value1", "value2", "value3");
+		}		
+
+	@JsonIgnoreProperties("field1") -> opcional relativamente ao JsonIgnore de baixo
+	@JsonIgnoreProperties({"field1","field2"}) -> opcional relativamente ao JsonIgnore de baixo
+	public class SomeBean {
+
+		@JsonIgnore
+		private String field2;
+
+Dynamic Filtering: Customize filtering for a bean for specific REST API
+	@JsonFilter with FilterProvider
+
+	@RestController
+	public class FilteringController {
+
+		@GetMapping("/filtering")
+		public MappingJacksonValue filtering() {
+			SomeBean someBean = new SomeBean("value1", "value2", "value3");
+
+			MappingJacksonValue mappingJacksonValue = new MappingJacksonValue(someBean);
+			SimpleBeanPropertyFilter filter = SimpleBeanPropertyFilter.filterOutAllExcept("filter1","filter3")
+			FilterProvider filters = new SimpleFilterProvider().addFilter("SomeBeanFilter", filter);
+			mappingJacksonValue.setFilters(filter);			
+
+			return mappingJacksonValue; 
+		}
+
+	@JsonFilter("SomeBeanFilter")
+	public class SomeBean {
+
+lesson 94 - Monitoring APIs with Spring Boot Actuator
+
+lesson 95 - Exploring APIs with Spring Boot HAL Explorer
+	HAL (JSON Hypertext Application Language)
+
+
+
+Rua Álvaro Teles, nº 3, Alburitel
+2490-020
+Ourém
+
+
+Data de nascimento: 10-07-1977
+Número de telefone: 912834457
+
+Morada de entrega do PC WU:
+Rua Álvaro Teles, nº 3, Alburitel
+2490-020
+Ourém
+
+
+
+
+
+•	Pede à equipa de PMO acesso aos repositórios relacionados com o Projeto (Equipas do Teams)
+	•	Ivo Martins (ivmartins@deloitte.pt) 
+•	Ana Maria Ventura (anventura@deloitte.pt)
+•	João Gonçalves (joaodgoncalves@deloitte.pt)
+•	Mariana Barreto (marbarreto@deloitte.pt)
+
+
+•	Vamos pedir os teus acessos WU:
+	o	Vais receber um email com as credenciais da WU – como o exemplo abaixo - dentro de 3 a 4 dias (depois disso instala a app Okta Verify no 	telemóvel seguindo as indicações. Atenção: Define uma pergunta de segurança) 
+
+	o	Notifica a equipa de PMO das tuas credenciais WU (e-mail + user) para que possamos fazer o pedido do equipamento – verifica o teu email como 	exemplificado no email abaixo (Nota: Garante o uso regular do PC WU de modo a salvaguardar as atualizações necessárias ao seu funcionamento)
+
+	o	Realiza os pedidos de acesso às ferramentas de trabalho que vais precisar, 2 a 3 dias depois de receberes o email com as credenciais 	(consultando este guia), nomeadamente Jira, Confluence, Box e Exchange e principalmente VPN/PulseSecure (só assim terás acesso ao PC WU)
+
+•	Preenche as tuas preferências de férias no Holiday Tracker (aqui), coordenadas com o teu Manager/ WS Leader
+
+
+deloittept.sandbox.mambu.com
+Upskill-user
+Mambu!2022
+
+joaofisousa
+Mambu@1234_joao
+
+https://ireland2.sandbox.mpo.mambu.com
+joaramalho@deloitte.pt
+Upskill2022!
+
+joaofisousa@deloitte.pt
+marillion123M..
+____________________________________________________
+
+
+Assim eles implementam um SAP
+
+
+
+
+
