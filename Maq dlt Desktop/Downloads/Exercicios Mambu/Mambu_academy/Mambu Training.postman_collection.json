@@ -1,0 +1,452 @@
+{
+	"info": {
+		"_postman_id": "f4ed46f1-7d5c-4f21-9031-d35cfbdbb6e5",
+		"name": "Mambu Training",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get All Clients",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/vnd.mambu.v2+json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://deloittept.sandbox.mambu.com/api/clients",
+					"protocol": "https",
+					"host": [
+						"deloittept",
+						"sandbox",
+						"mambu",
+						"com"
+					],
+					"path": [
+						"api",
+						"clients"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Loans",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/vnd.mambu.v2+json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://deloittept.sandbox.mambu.com/api/loans",
+					"protocol": "https",
+					"host": [
+						"deloittept",
+						"sandbox",
+						"mambu",
+						"com"
+					],
+					"path": [
+						"api",
+						"loans"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Loan by ID",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/vnd.mambu.v2+json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://deloittept.sandbox.mambu.com/api/loans/JTFY490",
+					"protocol": "https",
+					"host": [
+						"deloittept",
+						"sandbox",
+						"mambu",
+						"com"
+					],
+					"path": [
+						"api",
+						"loans",
+						"JTFY490"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Search",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/vnd.mambu.v2+json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"filterCriteria\": [\r\n    {\r\n      \"field\": \"_CFS1.Age1\",\r\n      \"operator\": \"NOT_EMPTY\",\r\n      \"secondValue\": \"\"\r\n    }\r\n  ],\r\n  \"sortingCriteria\": {\r\n    \"field\": \"_CFS1.Age1\",\r\n    \"order\": \"ASC\"\r\n  }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://deloittept.sandbox.mambu.com/api/clients:search",
+					"protocol": "https",
+					"host": [
+						"deloittept",
+						"sandbox",
+						"mambu",
+						"com"
+					],
+					"path": [
+						"api",
+						"clients:search"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Make Deposit",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/vnd.mambu.v2+json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\r\n    \"amount\": 12001\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://deloittept.sandbox.mambu.com/api/deposits/CAOVD-UEB983/deposit-transactions",
+					"protocol": "https",
+					"host": [
+						"deloittept",
+						"sandbox",
+						"mambu",
+						"com"
+					],
+					"path": [
+						"api",
+						"deposits",
+						"CAOVD-UEB983",
+						"deposit-transactions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create clients",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/vnd.mambu.v2+json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"assignedBranchKey\": \"8a19dee173b34f480173b3c35a2c7433\",\r\n  \"assignedCentreKey\": \"8a19dee173b34f480173b3cc8f227eba\",\r\n  \"birthDate\": \"1988-01-26\",\r\n  \"emailAddress\": \"zecarlos@email.pt\",\r\n  \"firstName\": \"Maria Joana\",\r\n  \"gender\": \"FEMALE\",\r\n  \"lastName\": \"Faria\",\r\n  \"mobilePhone\": \"912344567\",\r\n  \"state\": \"INACTIVE\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://deloittept.sandbox.mambu.com/api/clients",
+					"protocol": "https",
+					"host": [
+						"deloittept",
+						"sandbox",
+						"mambu",
+						"com"
+					],
+					"path": [
+						"api",
+						"clients"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete a Client",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/vnd.mambu.v2+json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://deloittept.sandbox.mambu.com/api/clients/661664844",
+					"protocol": "https",
+					"host": [
+						"deloittept",
+						"sandbox",
+						"mambu",
+						"com"
+					],
+					"path": [
+						"api",
+						"clients",
+						"661664844"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Patch Deposit Account",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/vnd.mambu.v2+json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n  {\r\n    \"from\": \"CAOVD-UEB983\",\r\n    \"op\": \"ADD\",\r\n    \"path\": \"string\",\r\n    \"value\": {}\r\n  }\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://deloittept.sandbox.mambu.com/api/deposits/CAOVD-UEB983",
+					"protocol": "https",
+					"host": [
+						"deloittept",
+						"sandbox",
+						"mambu",
+						"com"
+					],
+					"path": [
+						"api",
+						"deposits",
+						"CAOVD-UEB983"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update clients",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "BATminnie1522!",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "mariamendes",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/vnd.mambu.v2+json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"encodedKey\": \"8a19a95a7f824f20017f897e0fd20622\",\r\n    \"id\": \"191146836\",\r\n    \"state\": \"ACTIVE\",\r\n    \"creationDate\": \"2022-03-14T17:35:24Z\",\r\n    \"lastModifiedDate\": \"2022-03-24T15:37:25Z\",\r\n    \"activationDate\": \"2022-03-15T10:56:55Z\",\r\n    \"approvedDate\": \"2022-03-14T17:35:24Z\",\r\n    \"firstName\": \"Mariana\",\r\n    \"lastName\": \"Mendes\",\r\n    \"middleName\": \"Teresa Faria Nascimento\",\r\n    \"homePhone\": \"134324\",\r\n    \"mobilePhone\": \"122335\",\r\n    \"mobilePhone2\": \"133445\",\r\n    \"emailAddress\": \"maria@hotmail.com\",\r\n    \"preferredLanguage\": \"ENGLISH\",\r\n    \"birthDate\": \"1996-01-13\",\r\n    \"gender\": \"FEMALE\",\r\n    \"assignedBranchKey\": \"8a19a95a7f824f20017f896359d664d7\",\r\n    \"assignedCentreKey\": \"8a19a95a7f824f20017f896359d664da\",\r\n    \"clientRoleKey\": \"8a19427b71ede3ca0171f4b5db321215\",\r\n    \"loanCycle\": 0,\r\n    \"groupLoanCycle\": 0\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://deloittept.sandbox.mambu.com/api/clients/191146836",
+					"protocol": "https",
+					"host": [
+						"deloittept",
+						"sandbox",
+						"mambu",
+						"com"
+					],
+					"path": [
+						"api",
+						"clients",
+						"191146836"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
