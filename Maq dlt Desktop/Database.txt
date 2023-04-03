@@ -1,0 +1,19 @@
+entidade Client
+	clientId: 299268506
+	encodedKey: 8a19a109734c7d7601734cb4db3a1e78
+	firstName: Client Nuno
+	id: 299268506
+    
+    
+
+entidade Branch
+	branchId: portugal
+	encodedKey: 8a19dee173b34f480173b3c35a2c7433
+	id: portugal
+	name: Portugal
+
+entidade Deposit Product
+	id: co-at-ca-eur
+	encodedKey: 8a19d5c677a4c6490177a54ae0b708dc
+	productId: co-at-ca-eur
+	name: WUIB - Austria - Current Corp. Account EUR
